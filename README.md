@@ -1,7 +1,5 @@
 # The Game of Dice
 
-Game of dice is a multiplayer Dice game
-
 ## Installation
 
 Install NodeJS from [here](https://nodejs.org/en/) for the Usage of npm.
@@ -22,7 +20,7 @@ npm run start
 
 ## USAGE
 
-Game will promt with following questions :
+Game will prompt with following questions :
 
 ```python
 ? How many players ?
