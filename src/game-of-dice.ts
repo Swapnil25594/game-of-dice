@@ -18,7 +18,7 @@ export class GameOfDice {
 
       while (this.isAnybodyLeftForTarget()) {
         this.loggerService.info(`\n\n\t\tRound ${++this._round}`);
-        this.loggerService.info('\tCurrent Score for palyers : ');
+        this.loggerService.info('\tCurrent Score : ');
         this.printScore();
         for (let index = 0; index < this.players.length; index++) {
           if (this.canPlayerRollADice(this.players[index])) {
@@ -55,7 +55,7 @@ export class GameOfDice {
       try {
         await this.promtService.askToRollDice(p.playerName);
         const roll = this.getRandomRoll();
-        this.loggerService.info(`\t${p.playerName}, you rolled ${roll}`);
+        this.loggerService.info(`\t${p.playerName} rolled ${roll}`);
         p.score += roll;
         p.rollsHistory.push(roll);
         if (this.isTargetAchieved(p)) {
@@ -102,7 +102,7 @@ export class GameOfDice {
       players[randomIndex] = temporaryValue;
     }
 
-    this.loggerService.info('\n\n\tPlayers wil play in the order below -');
+    this.loggerService.info('\n\n\tPlayers will play in the order below -');
     this.loggerService.table(this.players.map((p) => p.playerName));
     this.players = players;
   }
@@ -133,7 +133,7 @@ export class GameOfDice {
     if (p.score >= this.target) {
       p.rank = ++this._rankIndex;
       this.loggerService.info(
-        `\tCongrats ${p.playerName}, you completed the game. You Rank is ${p.rank}`
+        `\t\tCongratulations!! ${p.playerName}, \n\t\tyou completed the game. You Rank is ${p.rank}`
       );
       return true;
     }
